@@ -2,8 +2,11 @@
 
 feature 'Bookmarks' do
   scenario 'viewing bookmarks' do
-    visit '/bookmarks'
-    expect(page).to have_content 'https://jspaint.app/'
-    expect(page).to have_content 'https://michaelkelly.artofeurope.com/karl.htm'
+    add_test_bookmarks
+
+    visit '/'
+    expect(page).to have_content 'http://www.makersacademy.com'
+    expect(page).to have_content 'http://www.destroyallsoftware.com'
+    expect(page).to have_content 'http://www.google.com'
   end
 end

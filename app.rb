@@ -6,18 +6,25 @@ require_relative './lib/bookmark'
 
 # manages bookmarks
 class BookmarkManager < Sinatra::Base
+  enable 'sessions'
+
   configure :development do
     register Sinatra::Reloader
   end
 
   get '/' do
-    'Welcome to Bookmark Manager!'
-  end
-
-  get '/bookmarks' do
     @bookmarks = Bookmark.all
 
-    erb :'bookmarks/index'
+    erb :bookmarks
+  end
+
+  get '/add' do
+    erb :add
+  end
+
+  post '/' do
+    Bookmark.add(title: params[:title], url: params[:url])
+    redirect '/'
   end
 
   run! if app_file == $PROGRAM_NAME
