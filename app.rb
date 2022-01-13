@@ -14,15 +14,16 @@ class BookmarkManager < Sinatra::Base
 
   get '/' do
     @bookmarks = Bookmark.all
+    p @bookmarks
 
-    erb :bookmarks
+    erb :index
   end
 
   get '/add' do
     erb :add
   end
 
-  post '/' do
+  post '/add' do
     Bookmark.add(title: params[:title], url: params[:url])
     redirect '/'
   end

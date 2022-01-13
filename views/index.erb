@@ -1,8 +1,8 @@
 <ol>
-  <% @bookmarks.each do |bookmark| %>
+  <% @bookmarks.each do |title, url| %>
     <li>
-      <a href="<%= bookmark.url %>">
-        <%= bookmark.title %>
+      <a href="<%= url %>">
+        <%= title %>
       </a>
     </li>
   <% end %>

@@ -25,9 +25,11 @@ class Bookmark
     connection = connect
 
     result = connection.exec('SELECT * FROM bookmarks')
-    result.map do |bookmark|
-      Bookmark.new(id: bookmark['id'], title: bookmark['title'], url: bookmark['url'])
+    bookmarks = {}
+    result.map do |item|
+      bookmarks[item['title']] = item['url']
     end
+    bookmarks
   end
 
   def self.add(title:, url:)
