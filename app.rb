@@ -14,8 +14,7 @@ class BookmarkManager < Sinatra::Base
 
   get '/' do
     @bookmarks = Bookmark.all
-    p @bookmarks
-
+    
     erb :index
   end
 
