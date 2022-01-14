@@ -8,6 +8,14 @@
 So I can visit my favourite websites quickly
 I want to see a list of bookmarks
 
+- As a user
+So that I can revisit website that I like
+I can add bookmarks to the list
+
+- As a user
+So that I can get rid of links I no longer need
+I can delete bookmarks from the list
+
 ## Domain Models
 
 ![Domain model 1](./images/domain_model_1.png)
@@ -21,4 +29,3 @@ I want to see a list of bookmarks
  ```
 
  To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
- 

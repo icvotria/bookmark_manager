@@ -10,3 +10,4 @@ feature 'Adding a new bookmark' do
     expect(page).to have_link('Example', href: 'http://www.example.org')
   end
 end
+

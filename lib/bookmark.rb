@@ -17,11 +17,15 @@ class Bookmark
 
     result = connection.exec('SELECT * FROM bookmarks')
     
-    bookmarks = {}
-    result.map do |item|
-      bookmarks[item['title']] = item['url']
+    result.map do |bookmark|
+      Bookmark.new(id: bookmark['id'], title: bookmark['title'], url: bookmark['url'])
     end
-    bookmarks
+  end
+
+  def self.delete(id:)
+    connection = connect
+
+    result = connection.exec_params('DELETE FROM bookmarks WHERE id=$1', [id])
   end
 
   def self.add(title:, url:)

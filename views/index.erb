@@ -1,9 +1,19 @@
+<h1> Bookmarks! </h1>
+
+<form action='/add'>
+  <input type="submit" value="Add a bookmark please!" />
+</form>
+
 <ol>
-  <% @bookmarks.each do |title, url| %>
+  <% @bookmarks.each do |bookmark| %>
     <li>
-      <a href="<%= url %>">
-        <%= title %>
+      <a href="<%= bookmark.url %>">
+        <%= bookmark.title %>
       </a>
+      <form method='post' action='/delete'>
+        <input type='submit' id='<%= bookmark.id %>' value='Delete bookmark if you like'>
+        <input type='hidden' name='delete_id' value='<%= bookmark.id %>'>
+      </form>
     </li>
   <% end %>
 </ol>
